@@ -16,7 +16,7 @@ print(type(1e3))
 
 
 print("complex")
-print(type(1 + 2))
+print(type(1 + 2j))
 
 print("str:")
 print(type("Hola"))
