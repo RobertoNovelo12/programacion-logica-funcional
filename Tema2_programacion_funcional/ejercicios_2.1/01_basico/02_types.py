@@ -1,3 +1,4 @@
+# Jorge Roberto Novelo Poot - 8B
 from os import system
 
 if system("clear") != 0: system("cls")

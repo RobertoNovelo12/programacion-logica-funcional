@@ -1,3 +1,4 @@
+# Jorge Roberto Novelo Poot - 8B
 ###
 # 02 - Booleanos
 # Valores lógicos: True (verdadero) y False (falso).
