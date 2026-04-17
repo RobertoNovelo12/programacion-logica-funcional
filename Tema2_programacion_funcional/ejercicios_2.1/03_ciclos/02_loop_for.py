@@ -53,3 +53,55 @@ print(pares)
 
 
 #YO FUNCIONES
+
+print("-------------- EJERCICIOS -----------------")
+# EJERICIOS FOR - JORGE ROBERTO NOVELO POOT
+
+# Ejercicio 1: Imprimir números pares
+
+for i in range(2, 21, 2):
+    print(i)
+
+# Ejercicio 2: Calcular la media de una lista
+
+numeros = [10, 20, 30, 40, 50]
+suma = 0
+
+for n in numeros:
+    suma += n
+
+media = suma / len(numeros)
+print(f"La media es: {media}")
+
+# Ejercicio 3: Buscar el máximo de una lista
+
+numeros = [15, 5, 25, 10, 20]
+maximo = numeros[0]
+
+for n in numeros:
+    if n > maximo:
+        maximo = n
+
+print(f"El número maximo es: {maximo}")
+
+# Ejercicio 4: Filtrar cadenas por longitud
+
+palabras = ["cerro", "carros", "miel", "abejorro", "cantarito"]
+filtradas_for = []
+for p in palabras:
+    if len(p) > 5:
+        filtradas_for.append(p)
+
+print(f"Palabras con más de 5 letras: {filtradas_for}")
+
+# Ejercicio 5: Contar palabras que empiezan con una letra
+
+palabras = ["cerro", "carros", "miel", "abejorro", "cantarito"]
+letra_usuario = input("Introduce una letra: ").lower()
+contador = 0
+
+for p in palabras:
+    if p[0].lower() == letra_usuario:
+        contador += 1
+
+print(f"Hay {contador} palabras que empiezan con la letra '{letra_usuario}'.")
