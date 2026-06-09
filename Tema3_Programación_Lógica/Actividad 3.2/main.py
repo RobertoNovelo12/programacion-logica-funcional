@@ -1,3 +1,6 @@
+# Alan Alberto Colli Ake - 8B
+# Jorge Roberto Novelo Poot - 8B
+
 from tkinter import *
 from pyswip import Prolog
 
@@ -90,7 +93,6 @@ encabezado = Label(
 )
 encabezado.pack(fill="x")
 
-# Cuerpo dinámico
 cuerpo_frame = Frame(ventana, bg=FONDO_APP)
 cuerpo_frame.pack(fill="both", expand=True, pady=20)
 
@@ -119,10 +121,13 @@ def siguiente(opcion):
         mostrar_resultado()
 
 def mostrar_pregunta():
+
     for widget in cuerpo_frame.winfo_children():
         widget.destroy()
 
     pregunta, opciones = preguntas[indice]
+
+    # Contador 
     contador = Label(
         cuerpo_frame,
         text=f"PREGUNTA {indice + 1} DE {len(preguntas)}",
@@ -142,9 +147,12 @@ def mostrar_pregunta():
         wraplength=700
     )
     pregunta_label.pack(pady=(0, 25))
+
+    # Botones para centrar
     frame_opciones = Frame(cuerpo_frame, bg=FONDO_APP)
     frame_opciones.pack()
 
+    # Botones 
     for texto, caracteristicas in opciones:
         boton = Button(
             frame_opciones,
@@ -161,7 +169,7 @@ def mostrar_pregunta():
             command=lambda c=caracteristicas: siguiente(c)
         )
         boton.pack(pady=8)
-
+        
         boton.bind("<Enter>", on_enter)
         boton.bind("<Leave>", on_leave)
 
@@ -176,7 +184,7 @@ def mostrar_resultado():
     
     resultado = list(prolog.query(consulta))
 
-    # --- DISEÑO DE LA PANTALLA DE RESULTADOS (ESTILO TARJETA) ---
+    # --- PANTALLA DE RESULTADOS
     tarjeta_resultado = Frame(cuerpo_frame, bg=BLANCO, bd=1, relief="solid", highlightbackground="#E2E8F0", padx=40, pady=30)
     tarjeta_resultado.pack(pady=10, ipady=10)
 
@@ -205,6 +213,7 @@ def mostrar_resultado():
         error_label = Label(tarjeta_resultado, text="No se encontró una carrera que coincida exactamente con tu perfil de respuestas.", bg=BLANCO, fg="#C53030", font=("Segoe UI", 13, "bold"), wraplength=500)
         error_label.pack(pady=30)
 
+    # Botón de reinicio 
     btn_reinicio = Button(
         cuerpo_frame,
         text="Volver a realizar el test",
@@ -219,10 +228,11 @@ def mostrar_resultado():
         command=reiniciar_test
     )
     btn_reinicio.pack(pady=20)
-
+    
+    # Botón secundario de reiniciar
     btn_reinicio.bind("<Enter>", lambda e: e.widget.config(bg="#E2E8F0"))
     btn_reinicio.bind("<Leave>", lambda e: e.widget.config(bg="#EDF2F7"))
 
-# -------------------- INICIO --------------------
+# -------------------- INICO
 mostrar_pregunta()
 ventana.mainloop()
